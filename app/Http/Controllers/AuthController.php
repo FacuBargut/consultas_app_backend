@@ -12,7 +12,9 @@ class AuthController extends Controller
     public function auth (Request $request){
 
         $validatedData = $request->validate(
-            [
+            [   
+                'nombre'=> 'required',
+                'apellido'=> 'required',
                 'email'=> 'required|email|unique:users',
                 'password' => 'required',
                 'id_rol' => 'required'
@@ -20,8 +22,6 @@ class AuthController extends Controller
         
         if($user = User::find($request->email)){
             return "Se encontró el usuario: ". $user;
-        }else{
-            return "No se encontró el usuario";
         }
         
         $validatedData['password'] = Hash::make($request->password);

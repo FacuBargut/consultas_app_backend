@@ -25,13 +25,14 @@ use App\Http\Controllers\AuthController;
  Route::get('/usuarios', [UserController::class, 'index'] )->middleware('auth:api'); //Mostrar todos los usuarios
 // Route::get('/usuarios/alumnos', [UserController::class, 'getAlumnos'] ); //Mostrar todos los alumnos
  Route::get('/usuarios/docentes', [UserController::class, 'getDocentes'] ); //Mostrar todos los docentes
+ Route::get('/usuarios/alumnos', [UserController::class, 'getAlumnos'] ); //Mostrar todos los docentes
  Route::post('/usuarios', [UserController::class, 'store'] ); //Crear un usuario
-// Route::put('/usuarios/{id}', [UserController::class, 'update'] ); //Actualizar un usuario
-Route::delete('/usuarios/{id}', [UserController::class, 'delete'] ); //Eliminar un usuario
+ Route::put('/usuarios/{id}', [UserController::class, 'update'] ); //Actualizar un usuario
+ Route::delete('/usuarios/{id}', [UserController::class, 'delete'] ); //Eliminar un usuario
 
 // //Entidad consulta
-// Route::get('/consultas', [ConsultaController::class, 'index'] ); //Mostrar todas las consultas
-// Route::post('/consultas', [ConsultaController::class, 'store'] ); //Crear una consulta
+Route::get('/consultas', [ConsultaController::class, 'index'] ); //Mostrar todas las consultas
+Route::post('/consultas', [ConsultaController::class, 'grabar'] ); //Crear consultas
 // Route::put('/consultas/{id}', [ConsultaController::class, 'update'] ); //Actualizar una consulta
 // Route::delete('/consultas/{id}', [ConsultaController::class, 'delete'] ); //Eliminar una consulta
 

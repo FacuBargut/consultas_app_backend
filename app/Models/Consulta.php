@@ -9,4 +9,12 @@ class Consulta extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    protected $fillable = [
+        'id',
+        'estado',
+        'fecha',
+        'hora_inicio'
+
+    ];
 }

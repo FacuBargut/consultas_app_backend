@@ -16,10 +16,14 @@ class CreateConsultasTable extends Migration
         Schema::create('consultas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('estado');
-            $table->datetime('fecha_hora');
+            $table->date('fecha');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
             $table->string('motivoBloqueo');
             $table->unsignedInteger('id_docente');
             $table->foreign('id_docente')->references('id')->on('users');
+            $table->unsignedInteger('id_materia');
+            $table->foreign('id_materia')->references('id')->on('materias');
         });
     }
 
